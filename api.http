@@ -1,0 +1,48 @@
+### Cria uma nova manutentação
+POST http://localhost:8000/manutencoes HTTP/1.1
+content-type: application/json
+
+{
+    "placa": "ABC-1234",
+    "marca": "VW",
+    "modelo": "Fusca",
+    "cor": "Azul",
+    "nome_cliente": "Fulano",
+    "nome_mecanico": "Beltrano",
+    "data_chegada": "2023-12-09T17:18:00"
+}
+
+### Obtem a manutencao pelo id
+
+GET http://localhost:8000/manutencoes/2 HTTP/1.1
+content-type: application/json
+
+
+### Atualiza todos os campos
+PUT http://localhost:8000/manutencoes/2 HTTP/1.1
+content-type: application/json
+
+{
+    "placa": "ABC-1235",
+    "marca": "VW",
+    "modelo": "Beetle",
+    "cor": "Preto",
+    "nome_cliente": "Ciclano",
+    "nome_mecanico": "Beltrano",
+    "data_chegada": "2023-12-09T17:18:00"
+}
+
+### Atualiza só os campos modificadosz
+PATCH http://localhost:8000/manutencoes/2 HTTP/1.1
+content-type: application/json
+
+{
+    "placa": "ABC-1236",
+    "modelo": "Fusca",
+    "cor": "Azul",
+    "data_chegada": "2023-12-09T17:18:00"
+}
+
+### Exclui uma manutenção
+DELETE http://localhost:8000/manutencoes/5 HTTP/1.1
+content-type: application/json

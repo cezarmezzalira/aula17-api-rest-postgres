@@ -20,24 +20,21 @@ mkdir aula17-api-rest-postgres
 code aula17-api-rest-postgres
 ```
 
-
-## Instalando as dependencias do projeto
-
-```
-```
-
-
-## Ativando o ambiente no VSCode
-
+## Instalando as dependências do projeto
 
 ```shell
-
-poetry shell
+poetry install
 ```
 
-uvicorn src.server:app --reload
+## Rodando o container docker com o banco de dados
 
+```shell
+# Remove 
+docker run --name aula17-pg-db -p 5432:54321 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=oficina -d postgres:14
+```
 
-docker run --name postgres-db -p 5432:54321 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d postgres:14
+## Executando o projeto
 
-docker rm postgred-db --force
+```shell
+poetry run uvicorn src.server:app --reload
+```

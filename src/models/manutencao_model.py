@@ -1,8 +1,10 @@
 from typing import Optional
+
 from sqlmodel import Field, SQLModel
 
 
 class Manutencao(SQLModel, table=True):
+    __tablename__ = "manutencoes"
     id: int = Field(default=None, primary_key=True)
     placa: str
     marca: str
